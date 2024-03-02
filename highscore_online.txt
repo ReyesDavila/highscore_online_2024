@@ -2,14 +2,12 @@ function highscore_online(argument0, argument1) {
 	/*
 	Instrucciones:
 	1. Este script debe ser llamado: highscore_online;
-	2. En game maker studio 2 utilizar: function highscore_online(argument0,argument1){
-	3. Reemplazar el id del script ejemplo: global.highscore_id_DXNS0005="WXP2F05056";
-	4. Colocar en evento Asynchronous - http: highscore_online("http","");
-	5. Para agregar nuevo score: highscore_online(nombre,puntaje);
-	6. Para solicitar serial: highscore_online("solicitar serial","");
-	7. Para solicitar puntaje highscore_online("solicitar puntaje","");
-	8. Para borrar el highscore: highscore_online("borrar puntaje","");
-	9. Para agregar puntaje, ejemplo: highscore_online("agregar puntaje","&nombre=Dixon&puntaje=3000&dato=asd");
+	2. Colocar en evento Asynchronous - http: highscore_online("http","");
+	3. Para agregar nuevo score: highscore_online(nombre,puntaje);
+	4. Para solicitar serial: highscore_online("solicitar serial","");
+	5. Para solicitar puntaje highscore_online("solicitar puntaje","");
+	6. Para borrar el highscore: highscore_online("borrar puntaje","");
+	7. Para agregar puntaje, ejemplo: highscore_online("agregar puntaje","&nombre=Dixon&puntaje=3000&dato=asd");
 	*/
 	//Serial del script: _DXNS0005 
 
