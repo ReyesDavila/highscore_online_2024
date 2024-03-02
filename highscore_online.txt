@@ -1,0 +1,44 @@
+function highscore_online(argument0, argument1) {
+	/*
+	Instrucciones:
+	1. Este script debe ser llamado: highscore_online;
+	2. En game maker studio 2 utilizar: function highscore_online(argument0,argument1){
+	3. Reemplazar el id del script ejemplo: global.highscore_id_DXNS0005="WXP2F05056";
+	4. Colocar en evento Asynchronous - http: highscore_online("http","");
+	5. Para agregar nuevo score: highscore_online(nombre,puntaje);
+	6. Para solicitar serial: highscore_online("solicitar serial","");
+	7. Para solicitar puntaje highscore_online("solicitar puntaje","");
+	8. Para borrar el highscore: highscore_online("borrar puntaje","");
+	9. Para agregar puntaje, ejemplo: highscore_online("agregar puntaje","&nombre=Dixon&puntaje=3000&dato=asd");
+	*/
+	//Serial del script: _DXNS0005 
+
+	if(argument0="http")
+	{
+	    texto_DXNS0005 = json_decode(ds_map_find_value(async_load,"result"));
+	    mensaje_DXNS0005 = ds_map_find_value(texto_DXNS0005,"mensaje");
+	    serial_DXNS0005 = ds_map_find_value(texto_DXNS0005,"serial");
+	    if(ds_map_exists(texto_DXNS0005,"puntaje"))
+	    {
+	        highscore_clear();
+	        puntaje_DXNS0005 = json_decode(ds_map_find_value(texto_DXNS0005,"puntaje"));
+	        jugadores_DXNS0005 = ds_map_find_value(puntaje_DXNS0005,"jugadores");
+	        for(i_DXNS0005=0;i_DXNS0005<10;i_DXNS0005+=1)
+	        {
+	            jugador_DXNS0005 = ds_list_find_value(jugadores_DXNS0005,i_DXNS0005);
+	            nombre_DXNS0005 = ds_map_find_value(jugador_DXNS0005,"nombre");
+	            puntos_DXNS0005 = ds_map_find_value(jugador_DXNS0005,"puntaje");
+	            dato_DXNS0005[i_DXNS0005] = ds_map_find_value(jugador_DXNS0005,"dato");
+	            highscore_add(nombre_DXNS0005,puntos_DXNS0005);
+	        }
+	    }
+	}
+	else
+	{
+	    str_DXNS0005 = "accion="+string(argument0)+string(argument1);
+	    http_post_string(string(working_directory)+"controlPhp.php",str_DXNS0005); 
+	}
+
+
+
+}
